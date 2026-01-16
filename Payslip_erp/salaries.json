@@ -1,0 +1,1978 @@
+[
+  {
+    "name": "Mr.Khin Kyaw",
+    "date": "68-jan",
+    "income": {
+      "salary": 15000.0,
+      "overtime": 1000.0,
+      "living": 500.0,
+      "commission": 2000.0,
+      "other_income": 300.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    }
+  },
+  {
+    "name": "Mr.Khin Kyaw",
+    "date": "68-Sep",
+    "income": {
+      "salary": 15000.0,
+      "overtime": 600.0,
+      "living": 800.0,
+      "commission": 2000.0,
+      "other_income": 300.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    }
+  },
+  {
+    "name": "Mr.Sahachai Sampaongern",
+    "date": "68-jan",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-jan",
+    "income": {
+      "salary": 24279.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 24279.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Sep",
+    "income": {
+      "salary": 24225.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 229150.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Jun",
+    "income": {
+      "salary": 26567.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 154132.0,
+    "collection_social_wht": 4500.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-jan",
+    "income": {
+      "salary": 24738.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 24738.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Feb",
+    "income": {
+      "salary": 33401.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 58139.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Mar",
+    "income": {
+      "salary": 25937.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 84076.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Feb",
+    "income": {
+      "salary": 25534.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 49813.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Mar",
+    "income": {
+      "salary": 24616.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 74429.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Apr",
+    "income": {
+      "salary": 26574.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 101003.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-May",
+    "income": {
+      "salary": 26562.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 127565.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Jul",
+    "income": {
+      "salary": 25558.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 179690.0,
+    "collection_social_wht": 5250.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Aug",
+    "income": {
+      "salary": 25235.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 204925.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Apr",
+    "income": {
+      "salary": 29204.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 113280.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-jan",
+    "income": {
+      "salary": 22150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 22150.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Feb",
+    "income": {
+      "salary": 21150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 43300.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Mar",
+    "income": {
+      "salary": 23712.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 67012.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Apr",
+    "income": {
+      "salary": 22150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 89162.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-May",
+    "income": {
+      "salary": 25150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 114312.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Jun",
+    "income": {
+      "salary": 24255.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 138567.0,
+    "collection_social_wht": 4500.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Jul",
+    "income": {
+      "salary": 23975.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 162542.0,
+    "collection_social_wht": 5250.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Aug",
+    "income": {
+      "salary": 23492.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 186034.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Sep",
+    "income": {
+      "salary": 23150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 209184.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-jan",
+    "income": {
+      "salary": 21709.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 21709.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Feb",
+    "income": {
+      "salary": 21580.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 43289.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Mar",
+    "income": {
+      "salary": 21428.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 64717.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Apr",
+    "income": {
+      "salary": 23161.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 87878.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-May",
+    "income": {
+      "salary": 22416.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 110294.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Jun",
+    "income": {
+      "salary": 23016.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 133310.0,
+    "collection_social_wht": 4500.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Jul",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 156060.0,
+    "collection_social_wht": 5250.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Aug",
+    "income": {
+      "salary": 21684.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 177744.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Sep",
+    "income": {
+      "salary": 21735.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 199479.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Ms.Worakamon Tatun",
+    "date": "68-Oct",
+    "income": {
+      "salary": 23250.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 2000.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 72750.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Ms.Chattawan Sirisanguan",
+    "date": "68-Oct",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 56250.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Ms.Timakon Payachai",
+    "date": "68-Oct",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 56250.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Mr.Nakharin Angkapanompai",
+    "date": "68-Oct",
+    "income": {
+      "salary": 17150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 34140.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Rattipong Muenchamnong",
+    "date": "68-Aug",
+    "income": {
+      "salary": 15492.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 30984.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Mr.Rattipong Muenchamnong",
+    "date": "68-Jul",
+    "income": {
+      "salary": 15492.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 15492.0,
+    "collection_social_wht": 5250.0
+  },
+  {
+    "name": "Mr.Rattipong Muenchamnong",
+    "date": "68-Sep",
+    "income": {
+      "salary": 15310.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 46294.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Mr.Chadet Naenna",
+    "date": "68-Oct",
+    "income": {
+      "salary": 26990.87,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 77019.54,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Thanaphon Sonthisut",
+    "date": "68-Oct",
+    "income": {
+      "salary": 24745.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 251965.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Ms.Bhannaraimach Yosmekh",
+    "date": "68-Oct",
+    "income": {
+      "salary": 25722.5,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 2000.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 81167.5,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Ms.Bhannaraimach Yosmekh",
+    "date": "68-Aug",
+    "income": {
+      "salary": 25722.5,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 1000.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 26722.5,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Ms.Bhannaraimach Yosmekh",
+    "date": "68-Sep",
+    "income": {
+      "salary": 25722.5,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 1000.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 53445.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Ms.Timakon Payachai",
+    "date": "68-Aug",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 18750.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Ms.Timakon Payachai",
+    "date": "68-Sep",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 37500.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Aug",
+    "income": {
+      "salary": 17275.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 133664.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Jul",
+    "income": {
+      "salary": 17528.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 116389.0,
+    "collection_social_wht": 5250.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-jan",
+    "income": {
+      "salary": 16462.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 16462.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Feb",
+    "income": {
+      "salary": 15972.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 32434.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Mar",
+    "income": {
+      "salary": 17913.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 50347.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Apr",
+    "income": {
+      "salary": 15949.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 66296.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-May",
+    "income": {
+      "salary": 16375.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 82671.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Jun",
+    "income": {
+      "salary": 16190.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 98861.0,
+    "collection_social_wht": 4500.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Sep",
+    "income": {
+      "salary": 17150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 150814.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Oct",
+    "income": {
+      "salary": 18037.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 168851.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Sahachai Sampaongern",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Sahachai Sampaongern",
+    "date": "68-Apr",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-May",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 2063.0,
+      "living": 400.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 138493.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Jun",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 3025.0,
+      "living": 400.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 164668.0,
+    "collection_social_wht": 4500.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Jul",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 2040.0,
+      "living": 500.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 189958.0,
+    "collection_social_wht": 5250.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Aug",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 414.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 213122.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Sep",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 1030.37,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 236902.37,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Oct",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 4000.41,
+      "living": 585.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 264237.77999999997,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Oct",
+    "income": {
+      "salary": 22287.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 66317.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Oct",
+    "income": {
+      "salary": 24093.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 223572.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Oct",
+    "income": {
+      "salary": 24092.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 233276.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Oct",
+    "income": {
+      "salary": 24489.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 253639.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Rattipong Muenchamnong",
+    "date": "68-Oct",
+    "income": {
+      "salary": 15610.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 61904.0,
+    "collection_social_wht": 7500.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Nov",
+    "income": {
+      "salary": 23300.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 89617.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Nov",
+    "income": {
+      "salary": 17790.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 186641.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Nov",
+    "income": {
+      "salary": 22783.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 246355.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Chadet Naenna",
+    "date": "68-Nov",
+    "income": {
+      "salary": 25485.37,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 102504.90999999999,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Nov",
+    "income": {
+      "salary": 24150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 257426.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Khin Kyaw",
+    "date": "68-Nov",
+    "income": {
+      "salary": 23488.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 23488.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Nov",
+    "income": {
+      "salary": 23843.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 277482.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Nakharin Angkapanompai",
+    "date": "68-Nov",
+    "income": {
+      "salary": 17587.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 51727.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Nov",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 2027.0,
+      "living": 300.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 289314.77999999997,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Rattipong Muenchamnong",
+    "date": "68-Nov",
+    "income": {
+      "salary": 15425.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 77329.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Thanaphon Sonthisut",
+    "date": "68-Nov",
+    "income": {
+      "salary": 24718.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 276683.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Ms.Bhannaraimach Yosmekh",
+    "date": "68-Nov",
+    "income": {
+      "salary": 25722.5,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 2000.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 108890.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Ms.Chattawan Sirisanguan",
+    "date": "68-Nov",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 75000.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Ms.Timakon Payachai",
+    "date": "68-Nov",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 75000.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Ms.Worakamon Tatun",
+    "date": "68-Nov",
+    "income": {
+      "salary": 23250.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 2000.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 98000.0,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Dec",
+    "income": {
+      "salary": 22308.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 111925.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Anuson Kamsuwan",
+    "date": "68-Dec",
+    "income": {
+      "salary": 17150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 203791.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Dec",
+    "income": {
+      "salary": 22645.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 269000.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Chadet Naenna",
+    "date": "68-Dec",
+    "income": {
+      "salary": 24000.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 126504.90999999999,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Chirathiwat Thongthae",
+    "date": "68-Dec",
+    "income": {
+      "salary": 24150.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 281576.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Khin Kyaw",
+    "date": "68-Dec",
+    "income": {
+      "salary": 21369.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 44857.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Korakod Phatmee",
+    "date": "68-Dec",
+    "income": {
+      "salary": 24261.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 302161.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Nakharin Angkapanompai",
+    "date": "68-Dec",
+    "income": {
+      "salary": 16831.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 68558.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Natthaphon Mabai",
+    "date": "68-Dec",
+    "income": {
+      "salary": 22750.0,
+      "overtime": 2000.0,
+      "living": 375.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 314439.77999999997,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-Dec",
+    "income": {
+      "salary": 35000.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 265600.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-May",
+    "income": {
+      "salary": 25750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 25750.0,
+    "collection_social_wht": 750.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-Jun",
+    "income": {
+      "salary": 30750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 56500.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-Jul",
+    "income": {
+      "salary": 30750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 87250.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-Aug",
+    "income": {
+      "salary": 30750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 118000.0,
+    "collection_social_wht": 3000.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-Sep",
+    "income": {
+      "salary": 30750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 5925.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 154675.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-Oct",
+    "income": {
+      "salary": 35000.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 5925.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 195600.0,
+    "collection_social_wht": 4500.0
+  },
+  {
+    "name": "Mr.Pakadech Chaonawig",
+    "date": "68-Nov",
+    "income": {
+      "salary": 35000.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 230600.0,
+    "collection_social_wht": 5250.0
+  },
+  {
+    "name": "Mr.Rattipong Muenchamnong",
+    "date": "68-Dec",
+    "income": {
+      "salary": 15350.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 92679.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Thanaphon Sonthisut",
+    "date": "68-Dec",
+    "income": {
+      "salary": 24705.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 301388.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Ms.Bhannaraimach Yosmekh",
+    "date": "68-Dec",
+    "income": {
+      "salary": 25722.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 134611.5,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Ms.Chattawan Sirisanguan",
+    "date": "68-Dec",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 93750.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Ms.Timakon Payachai",
+    "date": "68-Dec",
+    "income": {
+      "salary": 18750.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 93750.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Ms.Worakamon Tatun",
+    "date": "68-Dec",
+    "income": {
+      "salary": 24250.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 122250.0,
+    "collection_social_wht": 9000.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 1500.0
+  }
+]
