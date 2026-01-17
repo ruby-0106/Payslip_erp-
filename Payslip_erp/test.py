@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
-import json
-import os
+import json #data loading
+import os #data loading
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -9,16 +9,16 @@ from email.mime.base import MIMEBase
 from email import encoders
 import datetime
 from dateutil.relativedelta import relativedelta
-import pandas as pd
+import pandas as pd #data loading
 
 
 # Import reportlab libraries for PDF generation
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
-from reportlab.pdfbase import pdfmetrics
+from reportlab.lib.pagesizes import A4 #PDF generation
+from reportlab.pdfgen import canvas #PDF generation
+from reportlab.pdfbase import pdfmetrics #PDF generation
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, Image
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, Image #PDF generation
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER

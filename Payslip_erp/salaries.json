@@ -465,24 +465,6 @@
   },
   {
     "name": "Mr.Anuwat Surarit",
-    "date": "68-Feb",
-    "income": {
-      "salary": 21580.0,
-      "overtime": 0.0,
-      "living": 0.0,
-      "commission": 0.0,
-      "other_income": 0.0
-    },
-    "deduction": {
-      "tax": 0.0,
-      "social_security": 750.0,
-      "other_deduct": 0.0
-    },
-    "collection_income": 43289.0,
-    "collection_social_wht": 1500.0
-  },
-  {
-    "name": "Mr.Anuwat Surarit",
     "date": "68-Mar",
     "income": {
       "salary": 21428.0,
@@ -1328,24 +1310,6 @@
     "collection_social_wht": 8250.0
   },
   {
-    "name": "Mr.Chadet Naenna",
-    "date": "68-Nov",
-    "income": {
-      "salary": 25485.37,
-      "overtime": 0.0,
-      "living": 0.0,
-      "commission": 0.0,
-      "other_income": 0.0
-    },
-    "deduction": {
-      "tax": 0.0,
-      "social_security": 750.0,
-      "other_deduct": 0.0
-    },
-    "collection_income": 102504.90999999999,
-    "collection_social_wht": 8250.0
-  },
-  {
     "name": "Mr.Chirathiwat Thongthae",
     "date": "68-Nov",
     "income": {
@@ -1973,6 +1937,60 @@
       "other_deduct": 0.0
     },
     "collection_income": 0.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Chadet Naenna",
+    "date": "68-May",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 3750.0
+  },
+  {
+    "name": "Mr.Chadet Naenna",
+    "date": "68-Nov",
+    "income": {
+      "salary": 25485.37,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 102504.90999999999,
+    "collection_social_wht": 8250.0
+  },
+  {
+    "name": "Mr.Anuwat Surarit",
+    "date": "68-Feb",
+    "income": {
+      "salary": 21580.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 43289.0,
     "collection_social_wht": 1500.0
   }
 ]
