@@ -29,10 +29,10 @@ from reportlab.lib.enums import TA_CENTER
 # ----------------------
 # Theme
 # ----------------------
-BG_COLOR = "#FFFFFF"      # White
-ACCENT_COLOR = "#314B9F"  # Dark Blue
-TEXT_COLOR = "#000000"    # Black
-BUTTON_TEXT_COLOR = "#FFFFFF" # White
+BG_COLOR = "#F5F5F7"
+ACCENT_COLOR = "#1F6FEB"
+TEXT_COLOR = "#111827"
+BUTTON_TEXT_COLOR = "#FFFFFF"
 
 
 # --- สร้าง Path ที่ถูกต้องไปยังไฟล์ต่างๆ ---
@@ -928,7 +928,7 @@ except tk.TclError:
 
 root.title("EIT Backoffice System")
 center_window(root, 1000, 500)
-root.configure(bg="#f0f0f0")
+root.configure(bg=BG_COLOR)
 
 
 # --- Pre-login Organization Selection ---
@@ -944,16 +944,21 @@ def show_org_selection():
 
     if os.path.exists(ICON_PATH):
         header_img_data = tk.PhotoImage(file=ICON_PATH).subsample(2, 2)
-        header_label = tk.Label(root, image=header_img_data, bg="#f0f0f0")
+        header_label = tk.Label(root, image=header_img_data, bg=BG_COLOR)
         header_label.image = header_img_data
         header_label.pack(pady=(20, 10))
 
 
-    tk.Label(root, text="เลือกองค์กร (Choose Organization):", font=("Arial", 16, "bold"), bg="#f0f0f0").pack(pady=8)
+    container = tk.Frame(root, bg=BG_COLOR)
+    container.pack(expand=True)
 
+    tk.Label(container, text="เลือกองค์กร (Choose Organization):", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack(pady=(0, 16))
 
-    btn_frame = tk.Frame(root, bg="#f0f0f0")
-    btn_frame.pack(pady=6)
+    card = tk.Frame(container, bg="#FFFFFF", bd=0, highlightbackground="#E5E7EB", highlightthickness=1)
+    card.pack(pady=0, padx=20)
+
+    btn_frame = tk.Frame(card, bg="#FFFFFF")
+    btn_frame.pack(pady=16, padx=24)
 
 
     tk.Button(
@@ -962,9 +967,12 @@ def show_org_selection():
         command=lambda: [org_selection.set("EIT Lasertechnik"), show_login_form()],
         bg=ACCENT_COLOR,
         fg=BUTTON_TEXT_COLOR,
-        font=("Arial", 10, "bold"),
-        width=22,
-    ).pack(pady=4, ipadx=4, ipady=4)
+        activebackground=ACCENT_COLOR,
+        activeforeground=BUTTON_TEXT_COLOR,
+        font=("Arial", 11, "bold"),
+        width=24,
+        relief="flat",
+    ).pack(pady=6, ipadx=6, ipady=6)
 
 
     tk.Button(
@@ -973,9 +981,12 @@ def show_org_selection():
         command=lambda: [org_selection.set("Einstein Industrie Technik (EIT) Laser"), show_login_form()],
         bg=ACCENT_COLOR,
         fg=BUTTON_TEXT_COLOR,
-        font=("Arial", 10, "bold"),
-        width=22,
-    ).pack(pady=4, ipadx=4, ipady=4)
+        activebackground=ACCENT_COLOR,
+        activeforeground=BUTTON_TEXT_COLOR,
+        font=("Arial", 11, "bold"),
+        width=24,
+        relief="flat",
+    ).pack(pady=6, ipadx=6, ipady=6)
 
 
 
@@ -988,31 +999,56 @@ def show_login_form():
     root.title(f"EIT Backoffice System - {org_selection.get()}")
 
 
+    container = tk.Frame(root, bg=BG_COLOR)
+    container.pack(expand=True, fill="both")
+
+    banner = tk.Frame(container, bg=BG_COLOR)
+    banner.pack(pady=(20, 10))
+
     if os.path.exists(ICON_PATH):
         header_img_data = tk.PhotoImage(file=ICON_PATH).subsample(2, 2)
-        header_label = tk.Label(root, image=header_img_data, bg="#f0f0f0")
+        header_label = tk.Label(banner, image=header_img_data, bg=BG_COLOR)
         header_label.image = header_img_data
-        header_label.pack(pady=(20, 10))
+        header_label.pack()
     else:
-        tk.Label(root, text=f"เข้าสู่ระบบ - {org_selection.get()}", font=("Arial", 16, "bold"), bg="#f0f0f0").pack(pady=20)
+        tk.Label(banner, text=f"EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
 
+    shadow = tk.Frame(container, bg=BG_COLOR)
+    shadow.pack(pady=4)
 
-    tk.Label(root, text="ชื่อผู้ใช้ (Username):", bg="#f0f0f0").pack(pady=5)
+    card_shadow = tk.Frame(shadow, bg="#D1D5DB")
+    card_shadow.pack(pady=4)
+
+    card = tk.Frame(card_shadow, bg="#FFFFFF", bd=0, highlightbackground="#E5E7EB", highlightthickness=1)
+    card.pack(padx=2, pady=2, ipadx=40)
+
+    top_accent = tk.Frame(card, bg=ACCENT_COLOR, height=3)
+    top_accent.pack(fill="x", side="top")
+
+    tk.Label(card, text="Login", font=("Arial", 18, "bold"), bg="#FFFFFF", fg=TEXT_COLOR).pack(pady=(24, 4))
+    tk.Label(card, text="Enter your credentials to continue", font=("Arial", 10), bg="#FFFFFF", fg="#6B7280").pack(pady=(0, 16))
+
+    form = tk.Frame(card, bg="#FFFFFF")
+    form.pack(padx=32, pady=(0, 16), fill="x")
+
+    tk.Label(form, text="Email", bg="#FFFFFF", fg=TEXT_COLOR).pack(anchor="w", pady=(0, 4))
     global entry_user, entry_pass
-    entry_user = tk.Entry(root)
-    entry_user.pack(pady=5, padx=50, fill='x')
+    entry_user = tk.Entry(form)
+    entry_user.pack(pady=(0, 10), fill="x")
 
+    tk.Label(form, text="Password", bg="#FFFFFF", fg=TEXT_COLOR).pack(anchor="w", pady=(4, 4))
+    entry_pass = tk.Entry(form, show="*")
+    entry_pass.pack(pady=(0, 10), fill="x")
 
-    tk.Label(root, text="รหัสผ่าน (Password):", bg="#f0f0f0").pack(pady=5)
-    entry_pass = tk.Entry(root, show="*")
-    entry_pass.pack(pady=5, padx=50, fill='x')
+    options_row = tk.Frame(card, bg="#FFFFFF")
+    options_row.pack(padx=32, pady=(0, 12), fill="x")
 
+    tk.Button(options_row, text="Forgot password?", command=lambda: None, bg="#FFFFFF", fg=ACCENT_COLOR, activebackground="#FFFFFF", activeforeground=ACCENT_COLOR, relief="flat", cursor="hand2").pack(side="right")
 
-    btn_login = tk.Button(root, text="Login", command=login, bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR, font=("Arial", 12, "bold"))
-    btn_login.pack(pady=20, ipadx=20, ipady=8)
+    btn_login = tk.Button(card, text="Login", command=login, bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR, activebackground=ACCENT_COLOR, activeforeground=BUTTON_TEXT_COLOR, font=("Arial", 12, "bold"), relief="flat")
+    btn_login.pack(padx=32, pady=(0, 16), ipadx=24, ipady=8, fill="x")
 
-    btn_back = tk.Button(root, text="Back", command=show_org_selection, bg="#FF6347", fg=BUTTON_TEXT_COLOR, font=("Arial", 10, "bold"))
-    btn_back.pack(pady=(0, 20), ipadx=15, ipady=6)
+    tk.Button(root, text="Back to organizations", command=show_org_selection, bg=BG_COLOR, fg=ACCENT_COLOR, activebackground=BG_COLOR, activeforeground=ACCENT_COLOR, relief="flat").pack(pady=(10, 20))
 
 
 show_org_selection()
