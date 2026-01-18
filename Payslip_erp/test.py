@@ -11,6 +11,18 @@ import datetime
 from dateutil.relativedelta import relativedelta
 import pandas as pd #data loading
 
+try:
+    from PIL import Image as PILImage, ImageTk
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
+
+try:
+    import customtkinter as ctk
+    CTK_AVAILABLE = True
+except ImportError:
+    CTK_AVAILABLE = False
+
 
 # Import reportlab libraries for PDF generation
 from reportlab.lib.pagesizes import A4 #PDF generation
@@ -33,14 +45,15 @@ BG_COLOR = "#F5F5F7"
 ACCENT_COLOR = "#1F6FEB"
 TEXT_COLOR = "#111827"
 BUTTON_TEXT_COLOR = "#FFFFFF"
+FIELD_BORDER_COLOR = "#D1D5DB"
+FORM_BG_COLOR = "#F4F6F8"
 
 
 # --- สร้าง Path ที่ถูกต้องไปยังไฟล์ต่างๆ ---
 # script_dir คือโฟลเดอร์ที่ไฟล์ .py นี้ถูกรัน
 script_dir = os.path.dirname(os.path.abspath(__file__))
 ICON_PATH = os.path.join(script_dir, "EITHeader.png")
-EIT_ICON_PATH = os.path.join(script_dir, "EIT.png")
-EINSTEIN_ICON_PATH = os.path.join(script_dir, "Einstein.png")
+EMP_FORM_IMAGE_PATH = os.path.join(script_dir, "EIT Lasertechnik.png")
 EMPLOYEE_FILE = os.path.join(script_dir, 'employees.json')
 SALARY_FILE = os.path.join(script_dir, 'salaries.json')
 FONT_PATH = os.path.join(script_dir, 'Prompt-Regular.ttf')
@@ -462,38 +475,231 @@ def add_delete_employee_window(parent_win):
 
 
 def add_employee_form(parent_win):
-    """ฟอร์มสำหรับกรอกข้อมูลพนักงานใหม่"""
     parent_win.withdraw()
-    add_form_win = tk.Toplevel(bg=BG_COLOR)
+    add_form_win = tk.Toplevel(bg=FORM_BG_COLOR)
     add_form_win.title("Add Employee")
-    center_window(add_form_win, 450, 450)
-   
-    tk.Label(add_form_win, text="กรอกข้อมูลพนักงาน", font=("Arial", 14, "bold"), bg=BG_COLOR).pack(pady=10)
-   
-    fields = {
-        "ชื่อพนักงาน (คำนำหน้าชื่อ ชื่อ นามสกุล)": "name",
-        "เลขประจำตัวพนักงาน:": "employee_code",
-        "เลขประจำตัวประชาชน:": "id",
-        "ตำแหน่ง (Position):": "position",
-        "อีเมล (สำหรับรับสลิป):": "email",
-        "วันที่เริ่มงาน (DD-MM-YYYY):": "start_date"
+    center_window(add_form_win, 900, 550)
+
+    container = tk.Frame(add_form_win, bg="#FFFFFF")
+    container.pack(expand=True, fill="both")
+
+    scroll_container = tk.Frame(container, bg="#FFFFFF")
+    scroll_container.pack(fill="both", expand=True)
+
+    canvas = tk.Canvas(scroll_container, bg="#FFFFFF", highlightthickness=0)
+    scrollbar = tk.Scrollbar(scroll_container, orient="vertical", command=canvas.yview)
+    canvas.configure(yscrollcommand=scrollbar.set)
+    canvas.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+
+    content = tk.Frame(canvas, bg="#FFFFFF")
+    content_window = canvas.create_window((0, 0), window=content, anchor="n")
+
+    def on_content_config(event):
+        canvas.configure(scrollregion=canvas.bbox("all"))
+
+    def on_canvas_config(event):
+        canvas.itemconfig(content_window, width=event.width)
+
+    content.bind("<Configure>", on_content_config)
+    canvas.bind("<Configure>", on_canvas_config)
+
+    content_inner = tk.Frame(content, bg="#FFFFFF")
+    content_inner.pack(expand=True, fill="both", padx=32, pady=(20, 32))
+
+    tk.Label(
+        content_inner,
+        text="EMPLOYEE INFORMATION",
+        font=("Arial", 16, "bold"),
+        bg="#FFFFFF",
+        fg=TEXT_COLOR,
+    ).pack(pady=(0, 4), anchor="w")
+
+    tk.Frame(content_inner, bg=FIELD_BORDER_COLOR, height=1).pack(fill="x", pady=(0, 16))
+
+    form = tk.Frame(content_inner, bg="#FFFFFF")
+    form.pack(pady=(0, 24), fill="x")
+
+    placeholders = {
+        "name": "Enter employee full name",
+        "employee_code": "Enter employee ID",
+        "id": "Enter national ID number",
+        "position": "Enter position",
+        "email": "Enter email address",
+        "start_date": "Enter start date (DD-MM-YYYY)"
     }
-   
+
     entries = {}
-    for label_text, key in fields.items():
-        tk.Label(add_form_win, text=label_text, bg=BG_COLOR).pack(pady=(10,0))
-        entry = tk.Entry(add_form_win)
-        entry.pack(pady=5, padx=20, fill='x')
+
+    def make_placeholder(entry, key, wrapper):
+        placeholder = placeholders.get(key, "")
+        if not placeholder:
+            return
+        entry.insert(0, placeholder)
+
+        def set_text_color(color):
+            if CTK_AVAILABLE and isinstance(entry, ctk.CTkEntry):
+                entry.configure(text_color=color)
+            else:
+                entry.config(fg=color)
+
+        def set_border_color(color):
+            if CTK_AVAILABLE and isinstance(entry, ctk.CTkEntry):
+                try:
+                    entry.configure(border_color=color)
+                except tk.TclError:
+                    pass
+            elif wrapper is not None:
+                wrapper.config(highlightbackground=color)
+
+        set_text_color("#9CA3AF")
+        set_border_color(FIELD_BORDER_COLOR)
+
+        def on_focus_in(event):
+            if entry.get() == placeholder:
+                entry.delete(0, tk.END)
+                set_text_color("#111827")
+            set_border_color("#000000")
+
+        def on_focus_out(event):
+            if entry.get().strip() == "":
+                entry.delete(0, tk.END)
+                entry.insert(0, placeholder)
+                set_text_color("#9CA3AF")
+            else:
+                set_text_color("#111827")
+            set_border_color(FIELD_BORDER_COLOR)
+
+        entry.bind("<FocusIn>", on_focus_in)
+        entry.bind("<FocusOut>", on_focus_out)
+
+    layout = [
+        ("ชื่อพนักงาน (คำนำหน้าชื่อ ชื่อ นามสกุล)", "Employee full name", "name", 0, 0),
+        ("เลขประจำตัวประชาชน:", "National ID number", "id", 0, 1),
+        ("เลขประจำตัวพนักงาน:", "Employee ID", "employee_code", 1, 0),
+        ("ตำแหน่ง", "Position", "position", 1, 1),
+        ("อีเมล (สำหรับรับสลิป):", "Email for payslip", "email", 2, 0),
+        ("วันที่เริ่มงาน", "Start date (DD-MM-YYYY)", "start_date", 2, 1),
+    ]
+
+    for th_label, en_label, key, row, col in layout:
+        field_block = tk.Frame(form, bg="#FFFFFF")
+        field_block.grid(row=row, column=col, sticky="ew", padx=6, pady=(12, 6))
+
+        tk.Label(field_block, text=th_label, bg="#FFFFFF", fg=TEXT_COLOR, font=("Arial", 10, "bold")).pack(anchor="w", padx=12)
+        tk.Label(field_block, text=en_label, bg="#FFFFFF", fg="#6B7280", font=("Arial", 9)).pack(anchor="w", pady=(0, 4), padx=12)
+
+        if CTK_AVAILABLE:
+            wrapper = tk.Frame(
+                field_block,
+                bg="#FFFFFF",
+                bd=0,
+                highlightthickness=0,
+            )
+        else:
+            wrapper = tk.Frame(
+                field_block,
+                bg="#FFFFFF",
+                highlightbackground=FIELD_BORDER_COLOR,
+                highlightthickness=1,
+                bd=0,
+            )
+        wrapper.pack(fill="x")
+
+        if CTK_AVAILABLE:
+            entry = ctk.CTkEntry(
+                wrapper,
+                corner_radius=10,
+                fg_color="#FFFFFF",
+                border_width=1,
+                border_color=FIELD_BORDER_COLOR,
+                height=40,
+                font=("Arial", 12),
+            )
+            entry.pack(fill="x", padx=12, pady=4)
+        else:
+            entry = tk.Entry(wrapper, bd=0, relief="flat", bg="#FFFFFF", font=("Arial", 12), width=40)
+            entry.pack(fill="x", padx=12, pady=10)
+
+        make_placeholder(entry, key, wrapper)
         entries[key] = entry
-   
+
+    form.grid_columnconfigure(0, weight=1)
+    form.grid_columnconfigure(1, weight=1)
+
+    spacer = tk.Frame(content_inner, bg="#FFFFFF", height=8)
+    spacer.pack(fill="x")
+
+    actions = tk.Frame(content_inner, bg="#FFFFFF")
+    actions.pack(pady=(12, 0), fill="x")
+
     def on_save():
-        employee_data = {key: entry.get() for key, entry in entries.items()}
+        employee_data = {}
+        for key, entry in entries.items():
+            value = entry.get().strip()
+            placeholder = placeholders.get(key)
+            if placeholder and value == placeholder:
+                value = ""
+            employee_data[key] = value
         save_employee(employee_data, add_form_win, parent_win)
 
+    if CTK_AVAILABLE:
+        ctk.CTkButton(
+            actions,
+            text="บันทึก",
+            command=on_save,
+            fg_color=ACCENT_COLOR,
+            text_color=BUTTON_TEXT_COLOR,
+            hover_color="#1D4ED8",
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=120,
+        ).pack(side="right", padx=(6, 0), pady=(0, 4))
 
-    tk.Button(add_form_win, text="บันทึก", command=on_save, bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR).pack(pady=15, ipadx=10, ipady=5)
-    tk.Button(add_form_win, text="กลับ", command=lambda: [add_form_win.destroy(), parent_win.deiconify()], bg="#FF6347", fg=BUTTON_TEXT_COLOR).pack(pady=5, ipadx=10, ipady=5)
-   
+        ctk.CTkButton(
+            actions,
+            text="กลับ",
+            command=lambda: [add_form_win.destroy(), parent_win.deiconify()],
+            fg_color="#E5E7EB",
+            text_color="#374151",
+            hover_color="#D1D5DB",
+            border_color="#D1D5DB",
+            border_width=1,
+            font=("Arial", 12),
+            corner_radius=12,
+            height=36,
+            width=120,
+        ).pack(side="right", padx=(0, 6), pady=(0, 4))
+    else:
+        tk.Button(
+            actions,
+            text="บันทึก",
+            command=on_save,
+            bg=ACCENT_COLOR,
+            fg=BUTTON_TEXT_COLOR,
+            activebackground=ACCENT_COLOR,
+            activeforeground=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            relief="flat",
+            bd=0,
+            width=8,
+        ).pack(side="right", padx=(6, 0), ipady=3, ipadx=4)
+
+        tk.Button(
+            actions,
+            text="กลับ",
+            command=lambda: [add_form_win.destroy(), parent_win.deiconify()],
+            bg="#E5E7EB",
+            fg="#374151",
+            activebackground="#D1D5DB",
+            activeforeground="#111827",
+            bd=0,
+            font=("Arial", 12),
+            relief="flat",
+            width=8,
+        ).pack(side="right", padx=(0, 6), ipady=3, ipadx=4)
+
     add_form_win.protocol("WM_DELETE_WINDOW", lambda: [add_form_win.destroy(), parent_win.deiconify()])
 
 
@@ -532,40 +738,306 @@ def delete_employee(parent_win):
         return
 
 
-    delete_win = tk.Toplevel(bg=BG_COLOR)
+    delete_win = tk.Toplevel(bg=FORM_BG_COLOR)
     delete_win.title("ลบพนักงาน")
-    center_window(delete_win, 400, 200)
+    center_window(delete_win, 900, 550)
 
+    container = tk.Frame(delete_win, bg="#FFFFFF")
+    container.pack(expand=True, fill="both")
 
-    tk.Label(delete_win, text="เลือกพนักงานที่ต้องการลบ:", font=("Arial", 12), bg=BG_COLOR).pack(pady=10)
-   
-    # ดึงรายชื่อมาแสดงใน combobox
-    employee_names = sorted([f'{emp["name"]} ({emp["id"]})' for emp in employees])
-    emp_combo = ttk.Combobox(delete_win, values=employee_names, state="readonly")
-    emp_combo.pack(pady=5, padx=20, fill='x')
-    if employee_names: emp_combo.set(employee_names[0])
+    content_inner = tk.Frame(container, bg="#FFFFFF")
+    content_inner.pack(expand=True, fill="both", padx=32, pady=(20, 32))
 
+    tk.Label(
+        content_inner,
+        text="DELETE EMPLOYEE",
+        font=("Arial", 16, "bold"),
+        bg="#FFFFFF",
+        fg=TEXT_COLOR,
+    ).pack(pady=(0, 4), anchor="w")
+
+    tk.Frame(content_inner, bg=FIELD_BORDER_COLOR, height=1).pack(fill="x", pady=(0, 16))
+
+    search_frame = tk.Frame(content_inner, bg="#FFFFFF")
+    search_frame.pack(fill="x", pady=(0, 8))
+
+    search_var = tk.StringVar()
+
+    if CTK_AVAILABLE:
+        search_wrapper = tk.Frame(
+            search_frame,
+            bg="#FFFFFF",
+            bd=0,
+            highlightthickness=0,
+        )
+        search_wrapper.pack(fill="x", expand=True)
+
+        search_box = ctk.CTkFrame(
+            search_wrapper,
+            fg_color="#FFFFFF",
+            corner_radius=10,
+            border_width=1,
+            border_color=FIELD_BORDER_COLOR,
+        )
+        search_box.pack(fill="x", expand=True, pady=4)
+
+        icon_parent = search_box
+        entry_parent = search_box
+    else:
+        search_wrapper = tk.Frame(
+            search_frame,
+            bg="#FFFFFF",
+            highlightbackground=FIELD_BORDER_COLOR,
+            highlightthickness=1,
+            bd=0,
+        )
+        search_wrapper.pack(fill="x", expand=True)
+        icon_parent = search_wrapper
+        entry_parent = search_wrapper
+
+    icon_label = tk.Label(
+        icon_parent,
+        text="🔍",
+        bg="#FFFFFF",
+        fg="#6B7280",
+        font=("Arial", 12, "bold"),
+    )
+    icon_label.pack(side="left", padx=(8, 4), pady=4)
+
+    if CTK_AVAILABLE:
+        search_entry = ctk.CTkEntry(
+            entry_parent,
+            corner_radius=0,
+            fg_color="#FFFFFF",
+            border_width=0,
+            height=36,
+            font=("Arial", 12),
+            textvariable=search_var,
+        )
+        search_entry.pack(side="left", fill="x", expand=True, padx=(0, 8), pady=4)
+    else:
+        search_entry = tk.Entry(
+            entry_parent,
+            textvariable=search_var,
+            bd=0,
+            relief="flat",
+            bg="#FFFFFF",
+            font=("Arial", 12),
+        )
+        search_entry.pack(side="left", ipadx=4, ipady=4, fill="x", expand=True, pady=4)
+
+    search_placeholder = "Search Employee Name..."
+    search_entry.insert(0, search_placeholder)
+    if CTK_AVAILABLE and isinstance(search_entry, ctk.CTkEntry):
+        search_entry.configure(text_color="#9CA3AF")
+    else:
+        search_entry.config(fg="#9CA3AF")
+
+    def set_search_border(color):
+        if CTK_AVAILABLE:
+            try:
+                search_box.configure(border_color=color)
+            except tk.TclError:
+                pass
+        else:
+            search_wrapper.config(highlightbackground=color)
+
+    set_search_border(FIELD_BORDER_COLOR)
+
+    def on_search_focus_in(event):
+        if search_entry.get() == search_placeholder:
+            search_entry.delete(0, tk.END)
+            if CTK_AVAILABLE and isinstance(search_entry, ctk.CTkEntry):
+                search_entry.configure(text_color="#111827")
+            else:
+                search_entry.config(fg="#111827")
+        set_search_border("#000000")
+
+    def on_search_focus_out(event):
+        if search_entry.get().strip() == "":
+            search_entry.delete(0, tk.END)
+            search_entry.insert(0, search_placeholder)
+            if CTK_AVAILABLE and isinstance(search_entry, ctk.CTkEntry):
+                search_entry.configure(text_color="#9CA3AF")
+            else:
+                search_entry.config(fg="#9CA3AF")
+        set_search_border(FIELD_BORDER_COLOR)
+
+    search_entry.bind("<FocusIn>", on_search_focus_in)
+    search_entry.bind("<FocusOut>", on_search_focus_out)
+
+    if CTK_AVAILABLE:
+        list_frame_outer = ctk.CTkFrame(
+            content_inner,
+            fg_color="#FFFFFF",
+            corner_radius=12,
+            border_width=1,
+            border_color=FIELD_BORDER_COLOR,
+        )
+        list_frame_outer.pack(pady=(0, 16), padx=2, fill="both", expand=True)
+        list_frame = tk.Frame(
+            list_frame_outer,
+            bg="#FFFFFF",
+            bd=0,
+            highlightthickness=0,
+        )
+        list_frame.pack(fill="both", expand=True, padx=2, pady=2)
+    else:
+        list_frame = tk.Frame(
+            content_inner,
+            bg="#FFFFFF",
+            highlightbackground=FIELD_BORDER_COLOR,
+            highlightthickness=1,
+            bd=0,
+        )
+        list_frame.pack(pady=(0, 16), padx=2, fill="x")
+
+    columns = ("no", "name", "id")
+
+    style = ttk.Style()
+    style.configure(
+        "Rounded.Treeview.Heading",
+        background=ACCENT_COLOR,
+        foreground=TEXT_COLOR,
+        font=("Arial", 10, "bold"),
+    )
+    style.configure(
+        "Rounded.Treeview",
+        font=("Arial", 10),
+        rowheight=28,
+        borderwidth=0,
+        relief="flat",
+    )
+
+    emp_tree = ttk.Treeview(
+        list_frame,
+        columns=columns,
+        show="headings",
+        selectmode="browse",
+        height=12,
+        style="Rounded.Treeview",
+    )
+    emp_tree.heading("no", text="#", anchor="center")
+    emp_tree.heading("name", text="Employee", anchor="w")
+    emp_tree.heading("id", text="ID", anchor="center")
+
+    emp_tree.column("no", width=40, anchor="center")
+    emp_tree.column("name", width=260, anchor="w")
+    emp_tree.column("id", width=200, anchor="center")
+
+    emp_tree.tag_configure("odd", background="#F9FAFB")
+    emp_tree.tag_configure("even", background="#FFFFFF")
+
+    scroll_y = tk.Scrollbar(list_frame, orient="vertical", command=emp_tree.yview)
+    emp_tree.configure(yscrollcommand=scroll_y.set)
+    emp_tree.pack(side="left", fill="both", expand=True)
+    scroll_y.pack(side="right", fill="y")
+
+    sorted_emps = sorted(employees, key=lambda e: e.get("name", ""))
+
+    def refresh_tree(filtered):
+        emp_tree.delete(*emp_tree.get_children())
+        for idx, emp in enumerate(filtered, start=1):
+            tag = "odd" if idx % 2 == 1 else "even"
+            emp_tree.insert("", "end", values=(idx, emp.get("name", ""), emp.get("id", "")), tags=(tag,))
+
+    refresh_tree(sorted_emps)
+
+    def apply_search(*_):
+        query = search_var.get().strip().lower()
+        if query == search_placeholder.lower():
+            query = ""
+        if not query:
+            refresh_tree(sorted_emps)
+            return
+        filtered = [
+            emp for emp in sorted_emps
+            if query in emp.get("name", "").lower() or query in str(emp.get("id", "")).lower()
+        ]
+        refresh_tree(filtered)
+
+    search_var.trace_add("write", apply_search)
 
     def confirm_delete():
-        selected_text = emp_combo.get()
-        if not selected_text: return
-       
-        # ยืนยันก่อนลบ
-        if not messagebox.askyesno("ยืนยันการลบ", f"คุณต้องการลบ '{selected_text.split(' (')[0]}' ใช่หรือไม่?"):
+        selection = emp_tree.selection()
+        if not selection:
+            messagebox.showerror("ผิดพลาด", "กรุณาเลือกพนักงานที่ต้องการลบ")
             return
-           
-        id_to_delete = selected_text.split(" (")[1].replace(")", "")
-       
-        employees_to_keep = [emp for emp in employees if emp["id"] != id_to_delete]
+
+        item_id = selection[0]
+        values = emp_tree.item(item_id, "values")
+        name = values[1]
+        id_to_delete = values[2]
+
+        if not messagebox.askyesno("ยืนยันการลบ", f"คุณต้องการลบ '{name}' ใช่หรือไม่?"):
+            return
+
+        employees_to_keep = [emp for emp in employees if emp.get("id") != id_to_delete]
         save_employees_to_file(employees_to_keep)
-        messagebox.showinfo("ลบสำเร็จ", f"ข้อมูลของ '{selected_text.split(' (')[0]}' ถูกลบเรียบร้อยแล้ว ✅")
+        messagebox.showinfo("ลบสำเร็จ", f"ข้อมูลของ '{name}' ถูกลบเรียบร้อยแล้ว ✅")
         delete_win.destroy()
         parent_win.deiconify()
 
+    actions = tk.Frame(content_inner, bg="#FFFFFF")
+    actions.pack(pady=(12, 0), fill="x")
 
-    tk.Button(delete_win, text="ยืนยันการลบ", command=confirm_delete, bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR).pack(pady=10, ipadx=10, ipady=5)
-    tk.Button(delete_win, text="กลับ", command=lambda: [delete_win.destroy(), parent_win.deiconify()], bg="#FF6347", fg=BUTTON_TEXT_COLOR).pack(pady=5, ipadx=10, ipady=5)
-   
+    if CTK_AVAILABLE:
+        ctk.CTkButton(
+            actions,
+            text="ยืนยันการลบ",
+            command=confirm_delete,
+            fg_color="#EF4444",
+            hover_color="#DC2626",
+            text_color=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=140,
+        ).pack(side="right", padx=(6, 0), pady=(0, 4))
+
+        ctk.CTkButton(
+            actions,
+            text="กลับ",
+            command=lambda: [delete_win.destroy(), parent_win.deiconify()],
+            fg_color="#E5E7EB",
+            text_color="#374151",
+            hover_color="#D1D5DB",
+            border_color="#D1D5DB",
+            border_width=1,
+            font=("Arial", 12),
+            corner_radius=12,
+            height=36,
+            width=120,
+        ).pack(side="right", padx=(0, 6), pady=(0, 4))
+    else:
+        tk.Button(
+            actions,
+            text="ยืนยันการลบ",
+            command=confirm_delete,
+            bg="#FF4B4B",
+            fg=BUTTON_TEXT_COLOR,
+            activebackground="#FF3333",
+            activeforeground=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            relief="flat",
+            bd=0,
+            width=12,
+        ).pack(side="right", padx=(6, 0), ipady=5, ipadx=8)
+
+        tk.Button(
+            actions,
+            text="กลับ",
+            command=lambda: [delete_win.destroy(), parent_win.deiconify()],
+            bg="#E5E7EB",
+            fg="#374151",
+            activebackground="#D1D5DB",
+            activeforeground="#111827",
+            bd=0,
+            font=("Arial", 12),
+            relief="flat",
+            width=12,
+        ).pack(side="right", padx=(0, 6), ipady=5, ipadx=8)
+
     delete_win.protocol("WM_DELETE_WINDOW", lambda: [delete_win.destroy(), parent_win.deiconify()])
 
 
