@@ -1922,24 +1922,6 @@
     "collection_social_wht": 9000.0
   },
   {
-    "name": "Mr.Anurak Pitiwong",
-    "date": "68-Feb",
-    "income": {
-      "salary": 0.0,
-      "overtime": 0.0,
-      "living": 0.0,
-      "commission": 0.0,
-      "other_income": 0.0
-    },
-    "deduction": {
-      "tax": 0.0,
-      "social_security": 750.0,
-      "other_deduct": 0.0
-    },
-    "collection_income": 0.0,
-    "collection_social_wht": 1500.0
-  },
-  {
     "name": "Mr.Chadet Naenna",
     "date": "68-May",
     "income": {
@@ -1991,6 +1973,24 @@
       "other_deduct": 0.0
     },
     "collection_income": 43289.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
     "collection_social_wht": 1500.0
   }
 ]
