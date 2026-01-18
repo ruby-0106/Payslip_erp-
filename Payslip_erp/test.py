@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 import json #data loading
 import os #data loading
+import glob
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -54,6 +55,8 @@ FORM_BG_COLOR = "#F4F6F8"
 script_dir = os.path.dirname(os.path.abspath(__file__))
 ICON_PATH = os.path.join(script_dir, "EITHeader.png")
 EMP_FORM_IMAGE_PATH = os.path.join(script_dir, "EIT Lasertechnik.png")
+EIT_ICON_PATH = os.path.join(script_dir, "EIT Lasertechnik.png")
+EINSTEIN_ICON_PATH = os.path.join(script_dir, "Einstein.png")
 EMPLOYEE_FILE = os.path.join(script_dir, 'employees.json')
 SALARY_FILE = os.path.join(script_dir, 'salaries.json')
 FONT_PATH = os.path.join(script_dir, 'Prompt-Regular.ttf')
@@ -137,7 +140,7 @@ def save_salaries_to_file(salaries):
 # ----------------------
 # PDF Generation
 # ----------------------
-def create_pay_slip_pdf(employee_data, salary_data):
+def create_pay_slip_pdf(employee_data, salary_data, company=None):
     """สร้างไฟล์ PDF ใบสลิปเงินเดือน"""
     filename = f"PaySlip_{employee_data['name'].replace(' ', '_')}_{salary_data['date']}.pdf"
     doc = SimpleDocTemplate(filename, pagesize=A4, rightMargin=70, leftMargin=70, topMargin=30, bottomMargin=30)
@@ -151,8 +154,19 @@ def create_pay_slip_pdf(employee_data, salary_data):
 
 
     # --- Header and Employee Info ---
-    if os.path.exists(ICON_PATH):
-        elements.append(Image(ICON_PATH, width=575, height=100))
+    header_img_path = None
+    if company == "EIT Lasertechnik":
+        if os.path.exists(EIT_ICON_PATH):
+            header_img_path = EIT_ICON_PATH
+    elif company == "Einstein Industrie Technik (EIT) Laser":
+        if os.path.exists(EINSTEIN_ICON_PATH):
+            header_img_path = EINSTEIN_ICON_PATH
+
+    if header_img_path is None and os.path.exists(ICON_PATH):
+        header_img_path = ICON_PATH
+
+    if header_img_path and os.path.exists(header_img_path):
+        elements.append(Image(header_img_path, width=575, height=100))
     elements.append(Paragraph("<b>Pay Slip / ใบสรุปเงินเดือน</b>", styles['Heading1_Thai']))
     elements.append(Paragraph(f"Date: {datetime.date.today().strftime('%d-%b-%Y')}", styles['Normal_Thai']))
     elements.append(Spacer(1, 20))
@@ -874,7 +888,7 @@ def delete_employee(parent_win):
             border_width=1,
             border_color=FIELD_BORDER_COLOR,
         )
-        list_frame_outer.pack(pady=(0, 16), padx=2, fill="both", expand=True)
+        list_frame_outer.pack(pady=(0, 12), padx=2, fill="both")
         list_frame = tk.Frame(
             list_frame_outer,
             bg="#FFFFFF",
@@ -890,7 +904,7 @@ def delete_employee(parent_win):
             highlightthickness=1,
             bd=0,
         )
-        list_frame.pack(pady=(0, 16), padx=2, fill="x")
+        list_frame.pack(pady=(0, 12), padx=2, fill="x")
 
     columns = ("no", "name", "id")
 
@@ -914,7 +928,7 @@ def delete_employee(parent_win):
         columns=columns,
         show="headings",
         selectmode="browse",
-        height=12,
+        height=10,
         style="Rounded.Treeview",
     )
     emp_tree.heading("no", text="#", anchor="center")
@@ -1073,12 +1087,6 @@ def create_salary_management_window(parent_win):
     main_content_frame.pack(pady=10, padx=20, fill='both', expand=True)
 
 
-    # เพิ่มแถบด้านล่างพร้อมปุ่ม "กลับ"
-    bottom_frame = tk.Frame(salary_win, bg=BG_COLOR)
-    bottom_frame.pack(pady=10, padx=20, fill='x')
-    tk.Button(bottom_frame, text="กลับ", command=lambda: [salary_win.destroy(), parent_win.deiconify()], bg="#FF6347", fg=BUTTON_TEXT_COLOR).pack(side=tk.LEFT, ipadx=10, ipady=5)
-
-
     # --- Left Side (Data Entry) ---
     entry_frame = tk.LabelFrame(main_content_frame, text="ข้อมูลเงินเดือน (Data Entry)", padx=15, pady=15, bg=BG_COLOR)
     entry_frame.grid(row=0, column=0, padx=10, sticky="nsew")
@@ -1101,6 +1109,12 @@ def create_salary_management_window(parent_win):
     tk.Label(top_frame, text="เลือกรอบเดือน (จาก Excel):", bg=BG_COLOR).pack(side=tk.LEFT, padx=(10, 5))
     month_combo = ttk.Combobox(top_frame, state="readonly", width=20)
     month_combo.pack(side=tk.LEFT, padx=5)
+
+    company_var = tk.StringVar(value=org_selection.get() or "EIT Lasertechnik")
+    tk.Label(top_frame, text="เลือกบริษัท:", bg=BG_COLOR).pack(side=tk.LEFT, padx=(10, 5))
+    company_combo = ttk.Combobox(top_frame, state="readonly", width=30, textvariable=company_var)
+    company_combo['values'] = ["EIT Lasertechnik", "Einstein Industrie Technik (EIT) Laser"]
+    company_combo.pack(side=tk.LEFT, padx=5)
    
     # --- Helper: Sort Excel Sheets Chronologically (FIXED) ---
     def sort_sheets_chronologically(sheet_names):
@@ -1313,7 +1327,8 @@ def create_salary_management_window(parent_win):
 
         try:
             # 1. สร้าง PDF
-            pdf_file = create_pay_slip_pdf(emp_data, salary_data)
+            pdf_company = company_var.get() or org_selection.get() or "EIT Lasertechnik"
+            pdf_file = create_pay_slip_pdf(emp_data, salary_data, pdf_company)
            
             # 2. ส่ง Email
             if send_email_with_attachment(pdf_file, recipient_email, emp_data['name']):
@@ -1324,9 +1339,77 @@ def create_salary_management_window(parent_win):
             messagebox.showerror("เกิดข้อผิดพลาด (PDF/Email)", f"ไม่สามารถสร้างหรือส่ง Pay Slip ได้:\n{e}")
 
 
-    tk.Button(button_frame, text="Save Data", command=save_salary_data, bg="#4CAF50", fg="white").pack(side=tk.LEFT, padx=10, ipady=5, ipadx=10)
-    tk.Button(button_frame, text="Generate & Send Payslip", command=generate_and_send, bg=ACCENT_COLOR, fg="white").pack(side=tk.LEFT, padx=10, ipady=5, ipadx=10)
-    tk.Button(button_frame, text="กลับไปหน้าหลัก", command=lambda: [salary_win.destroy(), parent_win.deiconify()], bg="#f44336", fg="white").pack(side=tk.LEFT, padx=10, ipady=5, ipadx=10)
+    if CTK_AVAILABLE:
+        ctk.CTkButton(
+            button_frame,
+            text="Save Data",
+            command=save_salary_data,
+            fg_color="#22C55E",
+            hover_color="#16A34A",
+            text_color=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=150,
+        ).pack(side=tk.LEFT, padx=10, pady=(0, 4))
+
+        ctk.CTkButton(
+            button_frame,
+            text="Generate & Send Payslip",
+            command=generate_and_send,
+            fg_color=ACCENT_COLOR,
+            hover_color="#1D4ED8",
+            text_color=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=200,
+        ).pack(side=tk.LEFT, padx=10, pady=(0, 4))
+
+        ctk.CTkButton(
+            button_frame,
+            text="กลับไปหน้าหลัก",
+            command=lambda: [salary_win.destroy(), parent_win.deiconify()],
+            fg_color="#E5E7EB",
+            text_color="#374151",
+            hover_color="#D1D5DB",
+            border_color="#D1D5DB",
+            border_width=1,
+            font=("Arial", 12),
+            corner_radius=12,
+            height=36,
+            width=160,
+        ).pack(side=tk.LEFT, padx=10, pady=(0, 4))
+    else:
+        tk.Button(
+            button_frame,
+            text="Save Data",
+            command=save_salary_data,
+            bg="#4CAF50",
+            fg="white",
+            font=("Arial", 12, "bold"),
+            relief="flat",
+        ).pack(side=tk.LEFT, padx=10, ipady=5, ipadx=10)
+
+        tk.Button(
+            button_frame,
+            text="Generate & Send Payslip",
+            command=generate_and_send,
+            bg=ACCENT_COLOR,
+            fg="white",
+            font=("Arial", 12, "bold"),
+            relief="flat",
+        ).pack(side=tk.LEFT, padx=10, ipady=5, ipadx=10)
+
+        tk.Button(
+            button_frame,
+            text="กลับไปหน้าหลัก",
+            command=lambda: [salary_win.destroy(), parent_win.deiconify()],
+            bg="#f44336",
+            fg="white",
+            font=("Arial", 12, "bold"),
+            relief="flat",
+        ).pack(side=tk.LEFT, padx=10, ipady=5, ipadx=10)
 
 
     # --- Populate Employee ComboBox and Bind Events ---
