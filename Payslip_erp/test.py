@@ -39,6 +39,8 @@ BUTTON_TEXT_COLOR = "#FFFFFF"
 # script_dir คือโฟลเดอร์ที่ไฟล์ .py นี้ถูกรัน
 script_dir = os.path.dirname(os.path.abspath(__file__))
 ICON_PATH = os.path.join(script_dir, "EITHeader.png")
+EIT_ICON_PATH = os.path.join(script_dir, "EIT.png")
+EINSTEIN_ICON_PATH = os.path.join(script_dir, "Einstein.png")
 EMPLOYEE_FILE = os.path.join(script_dir, 'employees.json')
 SALARY_FILE = os.path.join(script_dir, 'salaries.json')
 FONT_PATH = os.path.join(script_dir, 'Prompt-Regular.ttf')
@@ -950,15 +952,28 @@ def show_org_selection():
 
 
     container = tk.Frame(root, bg=BG_COLOR)
-    container.pack(expand=True)
+    container.pack(expand=True, fill="both")
 
-    tk.Label(container, text="เลือกองค์กร (Choose Organization):", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack(pady=(0, 16))
+    shadow = tk.Frame(container, bg=BG_COLOR)
+    shadow.place(relx=0.5, rely=0.5, anchor="center")
 
-    card = tk.Frame(container, bg="#FFFFFF", bd=0, highlightbackground="#E5E7EB", highlightthickness=1)
-    card.pack(pady=0, padx=20)
+    card_shadow = tk.Frame(shadow, bg="#D1D5DB")
+    card_shadow.pack(pady=4)
+
+    card = tk.Frame(card_shadow, bg="#FFFFFF", bd=0, highlightbackground="#E5E7EB", highlightthickness=1)
+    card.pack(padx=2, pady=2, ipadx=60, ipady=20)
+
+    top_accent = tk.Frame(card, bg=ACCENT_COLOR, height=3)
+    top_accent.pack(fill="x", side="top")
+
+    tk.Label(card, text="Choose Organization", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg="#FFFFFF").pack(pady=(24, 4))
+    tk.Label(card, text="Select the company to continue to login", font=("Arial", 10), fg="#6B7280", bg="#FFFFFF").pack(pady=(0, 12))
+
+    divider = tk.Frame(card, bg="#E5E7EB", height=1)
+    divider.pack(fill="x", padx=32, pady=(0, 12))
 
     btn_frame = tk.Frame(card, bg="#FFFFFF")
-    btn_frame.pack(pady=16, padx=24)
+    btn_frame.pack(pady=8, padx=32, fill="x")
 
 
     tk.Button(
@@ -970,9 +985,8 @@ def show_org_selection():
         activebackground=ACCENT_COLOR,
         activeforeground=BUTTON_TEXT_COLOR,
         font=("Arial", 11, "bold"),
-        width=24,
         relief="flat",
-    ).pack(pady=6, ipadx=6, ipady=6)
+    ).pack(pady=6, ipadx=6, ipady=8, fill="x")
 
 
     tk.Button(
@@ -984,9 +998,8 @@ def show_org_selection():
         activebackground=ACCENT_COLOR,
         activeforeground=BUTTON_TEXT_COLOR,
         font=("Arial", 11, "bold"),
-        width=24,
         relief="flat",
-    ).pack(pady=6, ipadx=6, ipady=6)
+    ).pack(pady=6, ipadx=6, ipady=8, fill="x")
 
 
 
@@ -1005,13 +1018,37 @@ def show_login_form():
     banner = tk.Frame(container, bg=BG_COLOR)
     banner.pack(pady=(20, 10))
 
-    if os.path.exists(ICON_PATH):
-        header_img_data = tk.PhotoImage(file=ICON_PATH).subsample(2, 2)
-        header_label = tk.Label(banner, image=header_img_data, bg=BG_COLOR)
-        header_label.image = header_img_data
-        header_label.pack()
+    org = org_selection.get()
+    header_path = None
+    if org == "EIT Lasertechnik":
+        if os.path.exists(EIT_ICON_PATH):
+            header_path = EIT_ICON_PATH
+    elif org == "Einstein Industrie Technik (EIT) Laser":
+        if os.path.exists(EINSTEIN_ICON_PATH):
+            header_path = EINSTEIN_ICON_PATH
+    if header_path is None and os.path.exists(ICON_PATH):
+        header_path = ICON_PATH
+
+    if header_path:
+        try:
+            header_img_data = tk.PhotoImage(file=header_path).subsample(2, 2)
+            header_label = tk.Label(banner, image=header_img_data, bg=BG_COLOR)
+            header_label.image = header_img_data
+            header_label.pack()
+        except tk.TclError:
+            header_path = ICON_PATH if os.path.exists(ICON_PATH) else None
+            if header_path:
+                try:
+                    fallback_img = tk.PhotoImage(file=header_path).subsample(2, 2)
+                    header_label = tk.Label(banner, image=fallback_img, bg=BG_COLOR)
+                    header_label.image = fallback_img
+                    header_label.pack()
+                except tk.TclError:
+                    tk.Label(banner, text="EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
+            else:
+                tk.Label(banner, text="EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
     else:
-        tk.Label(banner, text=f"EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
+        tk.Label(banner, text="EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
 
     shadow = tk.Frame(container, bg=BG_COLOR)
     shadow.pack(pady=4)
