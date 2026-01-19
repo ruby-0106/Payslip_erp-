@@ -1801,21 +1801,101 @@ def show_login_form():
 
     tk.Label(form, text="Password", bg="#FFFFFF", fg=TEXT_COLOR).pack(anchor="w", pady=(4, 4))
 
+    password_row = tk.Frame(form, bg="#FFFFFF")
+    password_row.pack(fill="x", pady=(0, 10))
+
+    password_state = {"visible": False}
+
     if CTK_AVAILABLE:
-        entry_pass = ctk.CTkEntry(
-            form,
-            corner_radius=10,
+        password_wrapper = ctk.CTkFrame(
+            password_row,
             fg_color="#FFFFFF",
-            border_width=1,
             border_color=FIELD_BORDER_COLOR,
-            height=36,
-            font=("Arial", 12),
-            show="*",
+            border_width=1,
+            corner_radius=10,
         )
-        entry_pass.pack(fill="x", pady=(0, 10))
+        password_wrapper.pack(fill="x")
+
+        entry_pass = tk.Entry(
+            password_wrapper,
+            show="*",
+            bd=0,
+            relief="flat",
+            bg="#FFFFFF",
+            font=("Arial", 12),
+        )
+        entry_pass.pack(side="left", fill="x", expand=True, padx=(12, 4), pady=6)
+
+        toggle_btn = ctk.CTkButton(
+            password_wrapper,
+            text="👁",
+            command=lambda: None,
+            fg_color="#FFFFFF",
+            text_color="#6B7280",
+            hover_color="#F3F4F6",
+            corner_radius=16,
+            border_width=0,
+            width=32,
+            height=32,
+        )
+        toggle_btn.pack(side="right", padx=(0, 8), pady=4)
     else:
-        entry_pass = tk.Entry(form, show="*", bd=0, relief="flat", bg="#FFFFFF", font=("Arial", 12))
-        entry_pass.pack(fill="x", pady=(0, 10))
+        password_wrapper = tk.Frame(
+            password_row,
+            bg="#FFFFFF",
+            bd=0,
+            highlightbackground=FIELD_BORDER_COLOR,
+            highlightthickness=1,
+        )
+        password_wrapper.pack(fill="x")
+
+        entry_pass = tk.Entry(
+            password_wrapper,
+            show="*",
+            bd=0,
+            relief="flat",
+            bg="#FFFFFF",
+            font=("Arial", 12),
+        )
+        entry_pass.pack(side="left", fill="x", expand=True, padx=(10, 4), pady=6)
+
+        toggle_btn = tk.Button(
+            password_wrapper,
+            text="👁",
+            bg="#FFFFFF",
+            fg="#6B7280",
+            activebackground="#FFFFFF",
+            activeforeground="#111827",
+            relief="flat",
+            bd=0,
+            cursor="hand2",
+            width=2,
+            command=lambda: None,
+        )
+        toggle_btn.pack(side="right", padx=(0, 8), pady=4)
+
+    def toggle_password():
+        if password_state["visible"]:
+            if CTK_AVAILABLE:
+                entry_pass.configure(show="*")
+                toggle_btn.configure(text="👁")
+            else:
+                entry_pass.config(show="*")
+                toggle_btn.config(text="👁")
+            password_state["visible"] = False
+        else:
+            if CTK_AVAILABLE:
+                entry_pass.configure(show="")
+                toggle_btn.configure(text="👁")
+            else:
+                entry_pass.config(show="")
+                toggle_btn.config(text="👁")
+            password_state["visible"] = True
+
+    if CTK_AVAILABLE:
+        toggle_btn.configure(command=toggle_password)
+    else:
+        toggle_btn.config(command=toggle_password)
 
     options_row = tk.Frame(card, bg="#FFFFFF")
     options_row.pack(padx=32, pady=(0, 12), fill="x")

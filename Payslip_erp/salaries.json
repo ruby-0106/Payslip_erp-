@@ -1508,24 +1508,6 @@
     "collection_social_wht": 8250.0
   },
   {
-    "name": "Mr.Anurak Pitiwong",
-    "date": "68-Dec",
-    "income": {
-      "salary": 22308.0,
-      "overtime": 0.0,
-      "living": 0.0,
-      "commission": 0.0,
-      "other_income": 0.0
-    },
-    "deduction": {
-      "tax": 0.0,
-      "social_security": 750.0,
-      "other_deduct": 0.0
-    },
-    "collection_income": 111925.0,
-    "collection_social_wht": 9000.0
-  },
-  {
     "name": "Mr.Anuson Kamsuwan",
     "date": "68-Dec",
     "income": {
@@ -1995,42 +1977,6 @@
   },
   {
     "name": "MissChatrawee Sungkaksem",
-    "date": "68-Feb",
-    "income": {
-      "salary": 31000.0,
-      "overtime": 0.0,
-      "living": 0.0,
-      "commission": 0.0,
-      "other_income": 0.0
-    },
-    "deduction": {
-      "tax": 0.0,
-      "social_security": 750.0,
-      "other_deduct": 0.0
-    },
-    "collection_income": 62000.0,
-    "collection_social_wht": 1500.0
-  },
-  {
-    "name": "Mr.Anurak Pitiwong",
-    "date": "68-Feb",
-    "income": {
-      "salary": 0.0,
-      "overtime": 0.0,
-      "living": 0.0,
-      "commission": 0.0,
-      "other_income": 0.0
-    },
-    "deduction": {
-      "tax": 0.0,
-      "social_security": 750.0,
-      "other_deduct": 0.0
-    },
-    "collection_income": 0.0,
-    "collection_social_wht": 1500.0
-  },
-  {
-    "name": "MissChatrawee Sungkaksem",
     "date": "68-Aug",
     "income": {
       "salary": 31000.0,
@@ -2100,5 +2046,131 @@
     },
     "collection_income": 0.0,
     "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mrs.Buppha Naenna",
+    "date": "68-Sep",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Khin Kyaw",
+    "date": "68-Mar",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 2250.0
+  },
+  {
+    "name": "MissChatrawee Sungkaksem",
+    "date": "68-Feb",
+    "income": {
+      "salary": 31000.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 62000.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Aug",
+    "income": {
+      "salary": 22080.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 22080.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "MissChatrawee Sungkaksem",
+    "date": "68-Sep",
+    "income": {
+      "salary": 31000.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 279000.0,
+    "collection_social_wht": 6750.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Dec",
+    "income": {
+      "salary": 22308.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 111925.0,
+    "collection_social_wht": 9000.0
   }
 ]
