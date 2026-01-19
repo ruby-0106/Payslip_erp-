@@ -1958,10 +1958,10 @@
     "collection_social_wht": 1500.0
   },
   {
-    "name": "Mr.Anurak Pitiwong",
-    "date": "68-Feb",
+    "name": "Ms.Chattawan Sirisanguan",
+    "date": "68-Dec",
     "income": {
-      "salary": 0.0,
+      "salary": 18750.0,
       "overtime": 0.0,
       "living": 0.0,
       "commission": 0.0,
@@ -1972,8 +1972,8 @@
       "social_security": 750.0,
       "other_deduct": 0.0
     },
-    "collection_income": 0.0,
-    "collection_social_wht": 1500.0
+    "collection_income": 93750.0,
+    "collection_social_wht": 3750.0
   },
   {
     "name": "Ms.Chattawan Sirisanguan",
@@ -1994,10 +1994,10 @@
     "collection_social_wht": 0.0
   },
   {
-    "name": "Ms.Chattawan Sirisanguan",
-    "date": "68-Dec",
+    "name": "MissChatrawee Sungkaksem",
+    "date": "68-Feb",
     "income": {
-      "salary": 18750.0,
+      "salary": 31000.0,
       "overtime": 0.0,
       "living": 0.0,
       "commission": 0.0,
@@ -2008,7 +2008,97 @@
       "social_security": 750.0,
       "other_deduct": 0.0
     },
-    "collection_income": 93750.0,
-    "collection_social_wht": 3750.0
+    "collection_income": 62000.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "MissChatrawee Sungkaksem",
+    "date": "68-Aug",
+    "income": {
+      "salary": 31000.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 248000.0,
+    "collection_social_wht": 6000.0
+  },
+  {
+    "name": "Ms.Bhannaraimach Yosmekh",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+    "name": "Ms.Timakon Payachai",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 0.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 0.0
+  },
+  {
+    "name": "Mrs.Buppha Naenna",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 1500.0
   }
 ]

@@ -112,14 +112,6 @@
     "start_date": "28/05/2562"
   },
   {
-    "name": "Ms.Buppha Naenna",
-    "employee_code": "590125",
-    "id": "3200500266789",
-    "position": "Factory",
-    "email": "Nuttapon8189@gmail.com",
-    "start_date": "25/01/2559"
-  },
-  {
     "name": "Mr.Sahachai Sampaongern",
     "employee_code": "000000",
     "id": "1200901324449",
@@ -142,22 +134,21 @@
     "position": "Accountant",
     "email": "muchs2557@gmail.com",
     "start_date": "25.01.2559"
-  }
-  ,
+  },
   {
-    "name": "Ms.Htet Yunn",
+    "name": "Mrs.Buppha Naenna",
     "employee_code": "590125",
     "id": "3200500266789",
-    "position": "Accountant",
-    "email": "htetyunn21@gmail.com",
-    "start_date": "25.01.2559"
+    "position": "Factory",
+    "email": "Nuttapon8189@gmail.com",
+    "start_date": "25/01/2559"
   },
   {
     "name": "MissChatrawee Sungkaksem",
-    "employee_code": "",
-    "id": "",
-    "position": "",
-    "email": "",
-    "start_date": ""
+    "employee_code": "660303",
+    "id": "3100503129503",
+    "position": "International Sales Consultant",
+    "email": "jahchat@gmail.com",
+    "start_date": "03/03/2566"
   }
 ]
