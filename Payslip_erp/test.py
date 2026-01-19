@@ -155,12 +155,13 @@ def create_pay_slip_pdf(employee_data, salary_data, company=None):
 
     # --- Header and Employee Info ---
     header_img_path = None
-    if company == "EIT Lasertechnik":
-        if os.path.exists(EIT_ICON_PATH):
-            header_img_path = EIT_ICON_PATH
-    elif company == "Einstein Industrie Technik (EIT) Laser":
+    company_str = (company or "").lower()
+    if "einstein" in company_str:
         if os.path.exists(EINSTEIN_ICON_PATH):
             header_img_path = EINSTEIN_ICON_PATH
+    elif "lasertechnik" in company_str or "eit" in company_str:
+        if os.path.exists(EIT_ICON_PATH):
+            header_img_path = EIT_ICON_PATH
 
     if header_img_path is None and os.path.exists(ICON_PATH):
         header_img_path = ICON_PATH
@@ -262,11 +263,6 @@ def create_pay_slip_pdf(employee_data, salary_data, company=None):
 # ---------------------------------
 
 
-    # เพิ่มหัวข้อสำหรับตารางภาษาอังกฤษ
-    elements.append(Paragraph("<b>Pay Slip Summary</b>", styles['Heading1_Thai']))
-    elements.append(Spacer(1, 10))
-
-
     # สร้างข้อมูลสำหรับตารางภาษาอังกฤษ
     eng_table_data = [[
         Paragraph("<b>Description</b>", header_style),
@@ -340,7 +336,15 @@ def create_pay_slip_pdf(employee_data, salary_data, company=None):
     line1_table = Table([[Paragraph("ลงชื่อ", styles['Normal_Thai']), signature_img]], colWidths=[50, 250])
     line1_table.setStyle(TableStyle([('VALIGN', (0,0), (-1,-1), 'MIDDLE')]))
    
-    final_signature_table = Table([[line1_table], [Paragraph("( รวีวรรณ งอยภูธร )", styles['Center_Thai'])], [Paragraph("ฝ่ายบุคคล", styles['Center_Thai'])]], colWidths=[300])
+    final_signature_table = Table(
+        [
+            [line1_table],
+            [Paragraph("( รวีวรรณ งอยภูธร )", styles['Center_Thai'])],
+            [Paragraph("ฝ่ายบุคคล", styles['Center_Thai'])],
+            [Paragraph("เอกสารนี้เป็นความลับส่วนบุคคล ห้ามเผยแพร่", styles['Center_Thai'])],
+        ],
+        colWidths=[300],
+    )
     final_signature_table.setStyle(TableStyle([('LEFTPADDING', (0,0), (-1,-1), 0), ('RIGHTPADDING', (0,0), (-1,-1), 0)]))
     final_signature_table.hAlign = 'CENTER'
     elements.append(final_signature_table)
@@ -1304,19 +1308,14 @@ def create_salary_management_window(parent_win):
 
 
     def generate_and_send():
-        """สร้าง PDF และส่งอีเมล"""
+        """สร้าง PDF แสดงตัวอย่าง แล้วค่อยถามเพื่อส่งอีเมล"""
         salary_data, emp_data = get_current_data()
        
         if not salary_data or not emp_data:
             messagebox.showerror("ผิดพลาด", "ไม่พบข้อมูลพนักงานหรือข้อมูลเงินเดือน")
             return
 
-
-        # ยืนยันก่อนส่ง
-        if not messagebox.askyesno("ยืนยันการส่ง", f"คุณต้องการสร้างและส่งสลิปเงินเดือนให้ '{emp_data['name']}' (รอบเดือน {salary_data['date']}) ใช่หรือไม่?"):
-            return
-           
-        # บันทึกข้อมูลล่าสุดก่อนส่ง
+        # บันทึกข้อมูลล่าสุดก่อนสร้าง PDF
         save_salary_data()
        
         recipient_email = emp_data.get("email")
@@ -1324,17 +1323,27 @@ def create_salary_management_window(parent_win):
             messagebox.showerror("ผิดพลาด", f"ไม่พบข้อมูลอีเมลสำหรับ '{emp_data['name']}' ❌\nกรุณาเพิ่มอีเมลในหน้าจัดการพนักงาน")
             return
 
-
         try:
             # 1. สร้าง PDF
             pdf_company = company_var.get() or org_selection.get() or "EIT Lasertechnik"
             pdf_file = create_pay_slip_pdf(emp_data, salary_data, pdf_company)
+
+            # 2. เปิดไฟล์ PDF ให้ดูตัวอย่าง
+            try:
+                os.startfile(pdf_file)
+            except Exception as e:
+                messagebox.showwarning("ไม่สามารถเปิดไฟล์", f"สร้างไฟล์ {pdf_file} แล้ว แต่ไม่สามารถเปิดไฟล์อัตโนมัติได้:\n{e}")
+
+            # 3. ถามยืนยันก่อนส่งอีเมล
+            if not messagebox.askyesno("ยืนยันการส่งอีเมล", f"ได้แสดงตัวอย่างสลิปเงินเดือนให้ '{emp_data['name']}' แล้ว\n\nต้องการส่งอีเมลไปที่ {recipient_email} หรือไม่?"):
+                messagebox.showinfo("ยกเลิกการส่ง", "ระบบสร้างไฟล์ Pay Slip แล้ว แต่ยังไม่ได้ส่งอีเมล")
+                return
            
-            # 2. ส่ง Email
+            # 4. ส่ง Email
             if send_email_with_attachment(pdf_file, recipient_email, emp_data['name']):
                 messagebox.showinfo("สำเร็จ", f"✅ ส่งใบสรุปเงินเดือนให้ '{emp_data['name']}' ที่อีเมล {recipient_email} เรียบร้อยแล้ว")
             else:
-                 messagebox.showerror("ผิดพลาด", "❌ ไม่สามารถส่งอีเมลได้ กรุณาตรวจสอบการตั้งค่า SENDER_EMAIL และ SENDER_PASSWORD (App Password)")
+                messagebox.showerror("ผิดพลาด", "❌ ไม่สามารถส่งอีเมลได้ กรุณาตรวจสอบการตั้งค่า SENDER_EMAIL และ SENDER_PASSWORD (App Password)")
         except Exception as e:
             messagebox.showerror("เกิดข้อผิดพลาด (PDF/Email)", f"ไม่สามารถสร้างหรือส่ง Pay Slip ได้:\n{e}")
 
