@@ -1976,6 +1976,27 @@
     "collection_social_wht": 0.0
   },
   {
+<<<<<<< HEAD
+=======
+    "name": "Mr.Anurak Pitiwong",
+    "date": "68-Feb",
+    "income": {
+      "salary": 0.0,
+      "overtime": 0.0,
+      "living": 0.0,
+      "commission": 0.0,
+      "other_income": 0.0
+    },
+    "deduction": {
+      "tax": 0.0,
+      "social_security": 750.0,
+      "other_deduct": 0.0
+    },
+    "collection_income": 0.0,
+    "collection_social_wht": 1500.0
+  },
+  {
+>>>>>>> 437962c (changes)
     "name": "MissChatrawee Sungkaksem",
     "date": "68-Aug",
     "income": {
@@ -2048,10 +2069,17 @@
     "collection_social_wht": 1500.0
   },
   {
+<<<<<<< HEAD
     "name": "Mrs.Buppha Naenna",
     "date": "68-Sep",
     "income": {
       "salary": 0.0,
+=======
+    "name": "MissChatrawee Sungkaksem",
+    "date": "68-Jul",
+    "income": {
+      "salary": 31000.0,
+>>>>>>> 437962c (changes)
       "overtime": 0.0,
       "living": 0.0,
       "commission": 0.0,
@@ -2062,6 +2090,7 @@
       "social_security": 750.0,
       "other_deduct": 0.0
     },
+<<<<<<< HEAD
     "collection_income": 0.0,
     "collection_social_wht": 6750.0
   },
@@ -2100,6 +2129,10 @@
     },
     "collection_income": 0.0,
     "collection_social_wht": 2250.0
+=======
+    "collection_income": 217000.0,
+    "collection_social_wht": 5250.0
+>>>>>>> 437962c (changes)
   },
   {
     "name": "MissChatrawee Sungkaksem",
@@ -2118,6 +2151,7 @@
     },
     "collection_income": 62000.0,
     "collection_social_wht": 1500.0
+<<<<<<< HEAD
   },
   {
     "name": "Mr.Anurak Pitiwong",
@@ -2172,5 +2206,7 @@
     },
     "collection_income": 111925.0,
     "collection_social_wht": 9000.0
+=======
+>>>>>>> 437962c (changes)
   }
 ]
