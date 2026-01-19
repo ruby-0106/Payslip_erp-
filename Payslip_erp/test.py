@@ -4,6 +4,7 @@ import json #data loading
 import os #data loading
 import glob
 import smtplib
+import tempfile
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -143,7 +144,9 @@ def save_salaries_to_file(salaries):
 def create_pay_slip_pdf(employee_data, salary_data, company=None):
     """สร้างไฟล์ PDF ใบสลิปเงินเดือน"""
     filename = f"PaySlip_{employee_data['name'].replace(' ', '_')}_{salary_data['date']}.pdf"
-    doc = SimpleDocTemplate(filename, pagesize=A4, rightMargin=70, leftMargin=70, topMargin=30, bottomMargin=30)
+    temp_dir = tempfile.gettempdir()
+    file_path = os.path.join(temp_dir, filename)
+    doc = SimpleDocTemplate(file_path, pagesize=A4, rightMargin=70, leftMargin=70, topMargin=30, bottomMargin=30)
     elements = []
    
     styles = getSampleStyleSheet()
@@ -339,7 +342,7 @@ def create_pay_slip_pdf(employee_data, salary_data, company=None):
     final_signature_table = Table(
         [
             [line1_table],
-            [Paragraph("( รวีวรรณ งอยภูธร )", styles['Center_Thai'])],
+            [Paragraph("( ระวิวรรณ งอยภูธร )", styles['Center_Thai'])],
             [Paragraph("ฝ่ายบุคคล", styles['Center_Thai'])],
             [Paragraph("เอกสารนี้เป็นความลับส่วนบุคคล ห้ามเผยแพร่", styles['Center_Thai'])],
         ],
@@ -351,7 +354,7 @@ def create_pay_slip_pdf(employee_data, salary_data, company=None):
 
 
     doc.build(elements)
-    return filename
+    return file_path
 
 
 # ----------------------
