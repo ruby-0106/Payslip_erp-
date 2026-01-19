@@ -436,22 +436,121 @@ def open_Admin_main_window():
     main_win = tk.Toplevel(bg=BG_COLOR)
     main_win.title("Admin Main System")
     center_window(main_win, 400, 300)
-   
     tk.Label(main_win, text="ยินดีต้อนรับสู่ระบบหลังบ้าน Admin", font=("Arial", 12), bg=BG_COLOR).pack(pady=20)
-   
-    tk.Button(main_win, text="จัดการพนักงาน (Add/Delete)", command=lambda: add_delete_employee_window(main_win), bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR).pack(pady=5, ipadx=10, ipady=5)
-   
-    # --- MODIFIED: ปุ่มนี้จะเปิดหน้าจัดการเงินเดือนที่รวมหน้าจอแล้ว ---
-    tk.Button(main_win, text="จัดการเงินเดือน (Salary Management)", command=lambda: create_salary_management_window(main_win), bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR).pack(pady=5, ipadx=10, ipady=5)
 
+    btn_frame = tk.Frame(main_win, bg=BG_COLOR)
+    btn_frame.pack(pady=10)
 
-    # เพิ่มปุ่มกลับไปหน้าก่อนหน้า
-    tk.Button(main_win, text="กลับ", command=lambda: [main_win.destroy(), root.deiconify()], bg="#FF6347", fg=BUTTON_TEXT_COLOR).pack(pady=5, ipadx=10, ipady=5)
+    if CTK_AVAILABLE:
+        ctk.CTkButton(
+            btn_frame,
+            text="จัดการพนักงาน (Add/Delete)",
+            command=lambda: add_delete_employee_window(main_win),
+            fg_color=ACCENT_COLOR,
+            text_color=BUTTON_TEXT_COLOR,
+            hover_color="#1D4ED8",
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=260,
+        ).pack(pady=6)
 
+        ctk.CTkButton(
+            btn_frame,
+            text="จัดการเงินเดือน (Salary Management)",
+            command=lambda: create_salary_management_window(main_win),
+            fg_color=ACCENT_COLOR,
+            text_color=BUTTON_TEXT_COLOR,
+            hover_color="#1D4ED8",
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=260,
+        ).pack(pady=6)
 
-    tk.Button(main_win, text="Logout", command=lambda: [main_win.destroy(), root.deiconify()], bg="#FF6347", fg=BUTTON_TEXT_COLOR).pack(pady=20, ipadx=10, ipady=5)
-   
-    # เมื่อปิดหน้าต่างหลัก ให้กลับไปหน้า Login
+        ctk.CTkButton(
+            btn_frame,
+            text="กลับ",
+            command=lambda: [main_win.destroy(), root.deiconify()],
+            fg_color="#E5E7EB",
+            text_color="#374151",
+            hover_color="#D1D5DB",
+            border_color="#D1D5DB",
+            border_width=1,
+            font=("Arial", 12),
+            corner_radius=12,
+            height=36,
+            width=160,
+        ).pack(pady=(16, 4))
+
+        ctk.CTkButton(
+            btn_frame,
+            text="Logout",
+            command=lambda: [main_win.destroy(), root.deiconify()],
+            fg_color="#EF4444",
+            text_color=BUTTON_TEXT_COLOR,
+            hover_color="#DC2626",
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=160,
+        ).pack(pady=(4, 0))
+    else:
+        tk.Button(
+            btn_frame,
+            text="จัดการพนักงาน (Add/Delete)",
+            command=lambda: add_delete_employee_window(main_win),
+            bg=ACCENT_COLOR,
+            fg=BUTTON_TEXT_COLOR,
+            activebackground=ACCENT_COLOR,
+            activeforeground=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            relief="flat",
+            bd=0,
+            width=22,
+        ).pack(pady=6, ipady=3)
+
+        tk.Button(
+            btn_frame,
+            text="จัดการเงินเดือน (Salary Management)",
+            command=lambda: create_salary_management_window(main_win),
+            bg=ACCENT_COLOR,
+            fg=BUTTON_TEXT_COLOR,
+            activebackground=ACCENT_COLOR,
+            activeforeground=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            relief="flat",
+            bd=0,
+            width=22,
+        ).pack(pady=6, ipady=3)
+
+        tk.Button(
+            btn_frame,
+            text="กลับ",
+            command=lambda: [main_win.destroy(), root.deiconify()],
+            bg="#E5E7EB",
+            fg="#374151",
+            activebackground="#D1D5DB",
+            activeforeground="#111827",
+            font=("Arial", 12),
+            relief="flat",
+            bd=0,
+            width=10,
+        ).pack(pady=(16, 4), ipady=3)
+
+        tk.Button(
+            btn_frame,
+            text="Logout",
+            command=lambda: [main_win.destroy(), root.deiconify()],
+            bg="#EF4444",
+            fg=BUTTON_TEXT_COLOR,
+            activebackground="#DC2626",
+            activeforeground=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            relief="flat",
+            bd=0,
+            width=10,
+        ).pack(pady=(4, 0), ipady=3)
     main_win.protocol("WM_DELETE_WINDOW", lambda: [main_win.destroy(), root.deiconify()])
 
 
@@ -481,12 +580,75 @@ def add_delete_employee_window(parent_win):
     add_delete_win = tk.Toplevel(bg=BG_COLOR)
     add_delete_win.title("Employee Management")
     center_window(add_delete_win, 400, 250)
-   
+
     tk.Label(add_delete_win, text="จัดการข้อมูลพนักงาน", font=("Arial", 12), bg=BG_COLOR).pack(pady=10)
-    tk.Button(add_delete_win, text="Add Employee", command=lambda: add_employee_form(add_delete_win), bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR).pack(pady=5, ipadx=10, ipady=5)
-    tk.Button(add_delete_win, text="Delete Employee", command=lambda: delete_employee(add_delete_win), bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR).pack(pady=5, ipadx=10, ipady=5)
-    tk.Button(add_delete_win, text="กลับ", command=lambda: [add_delete_win.destroy(), parent_win.deiconify()], bg="#FF6347", fg=BUTTON_TEXT_COLOR).pack(pady=20, ipadx=10, ipady=5)
-   
+
+    if CTK_AVAILABLE:
+        ctk.CTkButton(
+            add_delete_win,
+            text="Add Employee",
+            command=lambda: add_employee_form(add_delete_win),
+            fg_color=ACCENT_COLOR,
+            text_color=BUTTON_TEXT_COLOR,
+            hover_color="#1D4ED8",
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=200,
+        ).pack(pady=5, ipadx=10, ipady=5)
+
+        ctk.CTkButton(
+            add_delete_win,
+            text="Delete Employee",
+            command=lambda: delete_employee(add_delete_win),
+            fg_color=ACCENT_COLOR,
+            text_color=BUTTON_TEXT_COLOR,
+            hover_color="#1D4ED8",
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+            width=200,
+        ).pack(pady=5, ipadx=10, ipady=5)
+
+        ctk.CTkButton(
+            add_delete_win,
+            text="กลับ",
+            command=lambda: [add_delete_win.destroy(), parent_win.deiconify()],
+            fg_color="#E5E7EB",
+            text_color="#374151",
+            hover_color="#D1D5DB",
+            border_color="#D1D5DB",
+            border_width=1,
+            font=("Arial", 12),
+            corner_radius=12,
+            height=36,
+            width=160,
+        ).pack(pady=20, ipadx=10, ipady=5)
+    else:
+        tk.Button(
+            add_delete_win,
+            text="Add Employee",
+            command=lambda: add_employee_form(add_delete_win),
+            bg=ACCENT_COLOR,
+            fg=BUTTON_TEXT_COLOR,
+        ).pack(pady=5, ipadx=10, ipady=5)
+
+        tk.Button(
+            add_delete_win,
+            text="Delete Employee",
+            command=lambda: delete_employee(add_delete_win),
+            bg=ACCENT_COLOR,
+            fg=BUTTON_TEXT_COLOR,
+        ).pack(pady=5, ipadx=10, ipady=5)
+
+        tk.Button(
+            add_delete_win,
+            text="กลับ",
+            command=lambda: [add_delete_win.destroy(), parent_win.deiconify()],
+            bg="#FF6347",
+            fg=BUTTON_TEXT_COLOR,
+        ).pack(pady=20, ipadx=10, ipady=5)
+
     add_delete_win.protocol("WM_DELETE_WINDOW", lambda: [add_delete_win.destroy(), parent_win.deiconify()])
 
 
@@ -1457,23 +1619,37 @@ def create_salary_management_window(parent_win):
             messagebox.showwarning("ไม่พบไฟล์", f"ไม่พบไฟล์ '{emp_name}_FormSlip.xlsx' ในโฟลเดอร์ 'excel_files'")
 
 
-    # --- โหลดรายชื่อพนักงาน (FIXED) ---
-    employees = load_employees()
-    if employees:
-        # เรียงตามตัวอักษร (Mr., Ms. จะถูกเรียงตามปกติ)
-        employee_names = sorted([emp['name'] for emp in employees])
+    def refresh_employee_list(event=None):
+        employees = load_employees()
+        if not employees:
+            emp_combo['values'] = []
+            emp_combo.set('')
+            month_combo['values'] = []
+            month_combo.set('')
+            return
+
+        company = (company_var.get() or "").lower()
+        if "einstein" in company:
+            filtered = [emp for emp in employees if emp['name'] != "MissChatrawee Sungkaksem"]
+        else:
+            filtered = [emp for emp in employees if emp['name'] == "MissChatrawee Sungkaksem"]
+
+        employee_names = sorted([emp['name'] for emp in filtered])
         emp_combo['values'] = employee_names
-       
-        emp_combo.bind("<<ComboboxSelected>>", on_employee_select)
-        month_combo.bind("<<ComboboxSelected>>", import_excel_data) # เมื่อเลือกเดือนใหม่ ให้ import auto
-       
-        # เลือกคนแรกไว้เป็น default
+
+        month_combo['values'] = []
+        month_combo.set('')
+
         if employee_names:
             emp_combo.set(employee_names[0])
-            on_employee_select() # Trigger initial load
-    else:
-        # ถ้าไม่มีพนักงานในระบบเลย
-        tk.Label(top_frame, text="ไม่พบข้อมูลพนักงาน! กรุณาเพิ่มพนักงานก่อน", fg="red", bg=BG_COLOR).pack(side=tk.LEFT, padx=10)
+            on_employee_select()
+        else:
+            emp_combo.set('')
+
+    emp_combo.bind("<<ComboboxSelected>>", on_employee_select)
+    month_combo.bind("<<ComboboxSelected>>", import_excel_data)
+    company_combo.bind("<<ComboboxSelected>>", refresh_employee_list)
+    refresh_employee_list()
 
 
 
@@ -1498,7 +1674,7 @@ root.configure(bg=BG_COLOR)
 
 
 # --- Pre-login Organization Selection ---
-org_selection = tk.StringVar(value="")
+org_selection = tk.StringVar(value="EIT Lasertechnik")
 
 
 
@@ -1582,37 +1758,7 @@ def show_login_form():
     banner = tk.Frame(container, bg=BG_COLOR)
     banner.pack(pady=(20, 10))
 
-    org = org_selection.get()
-    header_path = None
-    if org == "EIT Lasertechnik":
-        if os.path.exists(EIT_ICON_PATH):
-            header_path = EIT_ICON_PATH
-    elif org == "Einstein Industrie Technik (EIT) Laser":
-        if os.path.exists(EINSTEIN_ICON_PATH):
-            header_path = EINSTEIN_ICON_PATH
-    if header_path is None and os.path.exists(ICON_PATH):
-        header_path = ICON_PATH
-
-    if header_path:
-        try:
-            header_img_data = tk.PhotoImage(file=header_path).subsample(2, 2)
-            header_label = tk.Label(banner, image=header_img_data, bg=BG_COLOR)
-            header_label.image = header_img_data
-            header_label.pack()
-        except tk.TclError:
-            header_path = ICON_PATH if os.path.exists(ICON_PATH) else None
-            if header_path:
-                try:
-                    fallback_img = tk.PhotoImage(file=header_path).subsample(2, 2)
-                    header_label = tk.Label(banner, image=fallback_img, bg=BG_COLOR)
-                    header_label.image = fallback_img
-                    header_label.pack()
-                except tk.TclError:
-                    tk.Label(banner, text="EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
-            else:
-                tk.Label(banner, text="EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
-    else:
-        tk.Label(banner, text="EIT Backoffice System", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
+    tk.Label(banner, text="Payslip Management", font=("Arial", 18, "bold"), fg=TEXT_COLOR, bg=BG_COLOR).pack()
 
     shadow = tk.Frame(container, bg=BG_COLOR)
     shadow.pack(pady=4)
@@ -1634,25 +1780,98 @@ def show_login_form():
 
     tk.Label(form, text="Email", bg="#FFFFFF", fg=TEXT_COLOR).pack(anchor="w", pady=(0, 4))
     global entry_user, entry_pass
-    entry_user = tk.Entry(form)
-    entry_user.pack(pady=(0, 10), fill="x")
+
+    if CTK_AVAILABLE:
+        entry_user = ctk.CTkEntry(
+            form,
+            corner_radius=10,
+            fg_color="#FFFFFF",
+            border_width=1,
+            border_color=FIELD_BORDER_COLOR,
+            height=36,
+            font=("Arial", 12),
+        )
+        entry_user.pack(fill="x", pady=(0, 10))
+    else:
+        entry_user = tk.Entry(form, bd=0, relief="flat", bg="#FFFFFF", font=("Arial", 12))
+        entry_user.pack(fill="x", pady=(0, 10))
 
     tk.Label(form, text="Password", bg="#FFFFFF", fg=TEXT_COLOR).pack(anchor="w", pady=(4, 4))
-    entry_pass = tk.Entry(form, show="*")
-    entry_pass.pack(pady=(0, 10), fill="x")
+
+    if CTK_AVAILABLE:
+        entry_pass = ctk.CTkEntry(
+            form,
+            corner_radius=10,
+            fg_color="#FFFFFF",
+            border_width=1,
+            border_color=FIELD_BORDER_COLOR,
+            height=36,
+            font=("Arial", 12),
+            show="*",
+        )
+        entry_pass.pack(fill="x", pady=(0, 10))
+    else:
+        entry_pass = tk.Entry(form, show="*", bd=0, relief="flat", bg="#FFFFFF", font=("Arial", 12))
+        entry_pass.pack(fill="x", pady=(0, 10))
 
     options_row = tk.Frame(card, bg="#FFFFFF")
     options_row.pack(padx=32, pady=(0, 12), fill="x")
 
-    tk.Button(options_row, text="Forgot password?", command=lambda: None, bg="#FFFFFF", fg=ACCENT_COLOR, activebackground="#FFFFFF", activeforeground=ACCENT_COLOR, relief="flat", cursor="hand2").pack(side="right")
+    if CTK_AVAILABLE:
+        ctk.CTkButton(
+            options_row,
+            text="Forgot password?",
+            command=lambda: None,
+            fg_color="#FFFFFF",
+            text_color=ACCENT_COLOR,
+            hover_color="#F3F4F6",
+            corner_radius=8,
+            border_width=0,
+        ).pack(side="right")
 
-    btn_login = tk.Button(card, text="Login", command=login, bg=ACCENT_COLOR, fg=BUTTON_TEXT_COLOR, activebackground=ACCENT_COLOR, activeforeground=BUTTON_TEXT_COLOR, font=("Arial", 12, "bold"), relief="flat")
-    btn_login.pack(padx=32, pady=(0, 16), ipadx=24, ipady=8, fill="x")
+        ctk.CTkButton(
+            card,
+            text="Login",
+            command=login,
+            fg_color=ACCENT_COLOR,
+            text_color=BUTTON_TEXT_COLOR,
+            hover_color="#1D4ED8",
+            font=("Arial", 12, "bold"),
+            corner_radius=12,
+            height=36,
+        ).pack(padx=32, pady=(0, 16), fill="x")
 
-    tk.Button(root, text="Back to organizations", command=show_org_selection, bg=BG_COLOR, fg=ACCENT_COLOR, activebackground=BG_COLOR, activeforeground=ACCENT_COLOR, relief="flat").pack(pady=(10, 20))
+        # ไม่มีปุ่มย้อนกลับไปหน้าเลือกองค์กรอีกต่อไป
+    else:
+        tk.Button(
+            options_row,
+            text="Forgot password?",
+            command=lambda: None,
+            bg="#FFFFFF",
+            fg=ACCENT_COLOR,
+            activebackground="#FFFFFF",
+            activeforeground=ACCENT_COLOR,
+            relief="flat",
+            cursor="hand2",
+        ).pack(side="right")
+
+        btn_login = tk.Button(
+            card,
+            text="Login",
+            command=login,
+            bg=ACCENT_COLOR,
+            fg=BUTTON_TEXT_COLOR,
+            activebackground=ACCENT_COLOR,
+            activeforeground=BUTTON_TEXT_COLOR,
+            font=("Arial", 12, "bold"),
+            relief="flat",
+        )
+        btn_login.pack(padx=32, pady=(0, 16), ipadx=24, ipady=8, fill="x")
+
+        # ไม่มีปุ่มย้อนกลับไปหน้าเลือกองค์กรอีกต่อไป
 
 
-show_org_selection()
+show_login_form()
 
 
 # เริ่มการทำงานของโปรแกรม
