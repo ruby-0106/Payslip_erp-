@@ -37,7 +37,14 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
 
+import os, sys
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS   # when running as .exe
+    except Exception:
+        base_path = os.path.dirname(os.path.abspath(__file__))  # when running as .py
+    return os.path.join(base_path, relative_path)
 
 
 # ----------------------
@@ -53,17 +60,28 @@ FORM_BG_COLOR = "#F4F6F8"
 
 # --- สร้าง Path ที่ถูกต้องไปยังไฟล์ต่างๆ ---
 # script_dir คือโฟลเดอร์ที่ไฟล์ .py นี้ถูกรัน
-script_dir = os.path.dirname(os.path.abspath(__file__))
-ICON_PATH = os.path.join(script_dir, "EITHeader.png")
-EMP_FORM_IMAGE_PATH = os.path.join(script_dir, "EIT Lasertechnik.png")
-EIT_ICON_PATH = os.path.join(script_dir, "EIT Lasertechnik.png")
-EINSTEIN_ICON_PATH = os.path.join(script_dir, "Einstein.png")
-EMPLOYEE_FILE = os.path.join(script_dir, 'employees.json')
-SALARY_FILE = os.path.join(script_dir, 'salaries.json')
-FONT_PATH = os.path.join(script_dir, 'Prompt-Regular.ttf')
-FONT_BOLD_PATH = os.path.join(script_dir, 'Prompt-Bold.ttf')
-EXCEL_DIR = os.path.join(script_dir, "excel_files")
-LICEN_IMAGE_PATH = os.path.join(script_dir,'licen.jpg')
+# script_dir = os.path.dirname(os.path.abspath(__file__))
+# ICON_PATH = os.path.join(script_dir, "EITHeader.png")
+# EMP_FORM_IMAGE_PATH = os.path.join(script_dir, "EIT Lasertechnik.png")
+# EIT_ICON_PATH = os.path.join(script_dir, "EIT Lasertechnik.png")
+# EINSTEIN_ICON_PATH = os.path.join(script_dir, "Einstein.png")
+# EMPLOYEE_FILE = os.path.join(script_dir, 'employees.json')
+# SALARY_FILE = os.path.join(script_dir, 'salaries.json')
+# FONT_PATH = os.path.join(script_dir, 'Prompt-Regular.ttf')
+# FONT_BOLD_PATH = os.path.join(script_dir, 'Prompt-Bold.ttf')
+# EXCEL_DIR = os.path.join(script_dir, "excel_files")
+# LICEN_IMAGE_PATH = os.path.join(script_dir,'licen.jpg')
+
+ICON_PATH = resource_path("EITHeader.png")
+EMP_FORM_IMAGE_PATH = resource_path("EIT Lasertechnik.png")
+EIT_ICON_PATH = resource_path("EIT Lasertechnik.png")
+EINSTEIN_ICON_PATH = resource_path("Einstein.png")
+EMPLOYEE_FILE = resource_path("employees.json")
+SALARY_FILE = resource_path("salaries.json")
+FONT_PATH = resource_path("Prompt-Regular.ttf")
+FONT_BOLD_PATH = resource_path("Prompt-Bold.ttf")
+EXCEL_DIR = resource_path("excel_files")
+LICEN_IMAGE_PATH = resource_path("licen.jpg")
 
 
 # --- ลงทะเบียนฟอนต์ (สำหรับ PDF) ---
@@ -262,7 +280,7 @@ def create_pay_slip_pdf(employee_data, salary_data, company=None):
     elements.append(thai_table)
     elements.append(Spacer(1, 20))
     # ---------------------------------
-# --- START: English Table (เพิ่มส่วนนี้เข้าไป) ---
+# --- START: English Table ---
 # ---------------------------------
 
 
